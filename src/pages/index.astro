@@ -1,13 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import GithubIcon from '../Icons/GithubIcon.astro';
+import InstagramIcon from '../Icons/InstagramIcon.astro';
+import EmailIcon from '../Icons/EmailIcon.astro';
+import LinkedinIcon from '../Icons/LinkedinIcon.astro';
+
+const socialMedia = [
+	{
+		socialName: 'Github',
+		socialIcon: GithubIcon
+	},
+	{
+		socialName: 'LinkedIn',
+		socialIcon: LinkedinIcon
+	},
+	{
+		socialName: 'Instagram',
+		socialIcon: InstagramIcon
+	},
+	{
+		socialName: 'Contáctame',
+		socialIcon: EmailIcon
+	}
+]
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1 class="text-white mt-[1000px]">Si</h1>
+<Layout title="Portfolio">
+	<main class="flex justify-center">
+		<article class="mt-24 grid grid-cols-[355px,683px] gap-10 w-[1086px] h-[355px]">
+			<section>
+				<img class="rounded-[500px] w-[355px] h-[355px] shadow-[0px_5px_50px_0px_rgba(255,144,64,0.2)]" src="/ProfilePictureKev.webp" alt="Profile Picture"/>
+			</section>
+			<section>
+				<h1 class="text-5xl font-bold dark:text-white text-darkModeColor">Hola, soy <span class="dark:text-darkModeOrange text-lightModeOrange">Kevin García</span></h1>
+				<div class="gap-y-2 flex flex-col mt-9">
+					<p class="dark:text-white text-darkModeColor text-xl font-bold"><span class="dark:text-darkModeOrange text-lightModeOrange">Front-end developer</span> con 2 años de experiencia, egresado de la carrera Ingeniería en Sistemas. </p>
+					<p class="dark:text-white text-darkModeColor text-xl font-bold">Tengo conocimientos en <spa class="dark:text-darkModeOrange text-lightModeOrange">UX/UI</spa>, esto en la creación de diseños y/o mockup's.</p>
+				</div>
+				<div class="flex gap-5 mt-10">
+					{socialMedia.map(({socialName, socialIcon: Icons}) => (
+						<button class="inline-flex items-center gap-[5px] py-2 px-[18px] rounded-2xl shadow-[4px_4px_0px_0px_rgba(255,144,64)] hover:shadow-[7px_7px_0px_0px_rgba(255,144,64)] duration-200 border-2 dark:border-darkModeOrange border-darkModeColor dark:bg-white bg-[#ff9040ed]">
+							<Icons/>
+							<p class="text-darkModeColor font-bold">{socialName}</p>
+						</button>
+					))}
+				</div>
+			</section>
+		</article>
 	</main>
 </Layout>
 
-<style>
-
-</style>

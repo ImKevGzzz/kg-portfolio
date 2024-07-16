@@ -4,8 +4,9 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'darkModeColor' : '#252238',
-				'orangeHover' : '#FF9040',
+				'darkModeColor': '#252238',
+				'lightModeOrange': '#DA5B00',
+				'darkModeOrange': '#FF9040',
 			}
 		},
 	},
