@@ -7,6 +7,8 @@ export default {
 				'darkModeColor': '#252238',
 				'lightModeOrange': '#DA5B00',
 				'darkModeOrange': '#FF9040',
+				'lightModeBlue': '#3C3B6E',
+				'lightModeExperienceHover': '#FF8C39'
 			}
 		},
 	},
