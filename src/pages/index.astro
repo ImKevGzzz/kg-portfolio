@@ -4,6 +4,7 @@ import GithubIcon from '../Icons/GithubIcon.astro';
 import InstagramIcon from '../Icons/InstagramIcon.astro';
 import EmailIcon from '../Icons/EmailIcon.astro';
 import LinkedinIcon from '../Icons/LinkedinIcon.astro';
+import Experience from '../components/Experience.astro';
 
 const socialMedia = [
 	{
@@ -26,8 +27,8 @@ const socialMedia = [
 ---
 
 <Layout title="Portfolio">
-	<main class="flex justify-center">
-		<article class="mt-24 grid grid-cols-[355px,683px] gap-10 w-[1086px] h-[355px]">
+	<main class="flex flex-col">
+		<article class="mt-24 grid grid-cols-[355px,683px] gap-10 w-[1086px] h-[355px] mx-auto">
 			<section>
 				<img class="rounded-[500px] w-[355px] h-[355px] shadow-[0px_5px_50px_0px_rgba(255,144,64,0.2)]" src="/ProfilePictureKev.webp" alt="Profile Picture"/>
 			</section>
@@ -47,6 +48,7 @@ const socialMedia = [
 				</div>
 			</section>
 		</article>
+		<Experience/>
 	</main>
 </Layout>
 
