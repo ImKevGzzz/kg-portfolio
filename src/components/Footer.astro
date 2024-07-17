@@ -1,0 +1,39 @@
+---
+import EmailIcon from "../Icons/EmailIcon.astro"
+import GithubIcon from "../Icons/GithubIcon.astro"
+import InstagramIcon from "../Icons/InstagramIcon.astro"
+import LinkedinIcon from "../Icons/LinkedinIcon.astro"
+import FooterIcons from "./FooterIcons.astro"
+
+const iconsArray = [
+    {
+        footerIcons: GithubIcon,
+        iconUrl: 'https://github.com/ImKevGzzz'
+    },
+    {
+        footerIcons: LinkedinIcon,
+        iconUrl: 'https://www.linkedin.com/in/kev-garc%C3%ADa/'
+    },
+    {
+        footerIcons: InstagramIcon,
+        iconUrl: 'https://www.instagram.com/__kev_garcia__/'
+    },
+    {
+        footerIcons: EmailIcon,
+        iconUrl: 'mailto:kevingarciaoviedo05@gmail.com'
+    },
+]
+
+---
+
+<footer class="mt-10 mb-3 dark:bg-darkModeOrange dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[70%] mx-5 rounded-[50px] px-10 p-5 justify-between flex items-center">
+    <p class="dark:text-white font-semibold">Desarrollado por Kevin García</p>
+    <li class="list-none flex gap-8">
+        {iconsArray.map(({footerIcons: Icons, iconUrl}) => (
+            <FooterIcons href={iconUrl} class="duration-200 hover:scale-75">
+                <Icons class="fill-white w-6 h-6"/>
+            </FooterIcons>
+        ))}
+    </li>
+
+</footer>
