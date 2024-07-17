@@ -1,0 +1,7 @@
+---
+const {href} = Astro.props
+---
+
+<a href={href} role="link" target="_blank" {...Astro.props}>
+    <slot/>
+</a>
