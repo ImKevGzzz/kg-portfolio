@@ -1,0 +1,141 @@
+---
+import DrupalIcon from "../Icons/TechnologiesIcons/DrupalIcon.astro";
+import NextJsIcon from "../Icons/TechnologiesIcons/NextJsIcon.astro";
+import FigmaIcon from "../Icons/TechnologiesIcons/FigmaIcon.astro";
+import GatbsyJsIcon from "../Icons/TechnologiesIcons/GatsbyJsIcon.astro";
+import GrapgQLIcon from "../Icons/TechnologiesIcons/GraphQLIcon.astro";
+import AstroJsIcon from "../Icons/TechnologiesIcons/AstroJsIcon.astro";
+import ProjectImage1 from "../../public/projectsImages/Project1.webp";
+import ProjectImage2 from "../../public/projectsImages/Project2.webp";
+import ProjectImage3 from "../../public/projectsImages/Project3.webp";
+import CardSvg from "../Icons/CardSvg.astro";
+
+const icons = {
+    Project1: {
+        techIcons: {
+            drupalIcon: DrupalIcon,
+            nextIcon: NextJsIcon,
+            figmaIcon: FigmaIcon,
+        }
+    },
+    Project2: {
+        techIcons: {
+            drupalIcon: DrupalIcon,
+            gatsbyIcon: GatbsyJsIcon,
+            graphQLIcon: GrapgQLIcon,
+        }
+    },
+    Project3: {
+        techIcons: {
+            astroIcon: AstroJsIcon,
+            figmaIcon: FigmaIcon,
+        }
+    }
+}
+
+const cardsData = [
+    {
+        title: 'Sitio Oficial de la empresa El Arte de forjar el hierro',
+        firstDescription: 'Éste negocio tiene como finalidad, el plasmar las ideas del cliente en obras hechas con hierro/metal.',
+        secondDescription: 'El propósito de la página web es dar a mostrar los trabajos que éste negocio realiza día a día.',
+        cardImage: ProjectImage1,
+        tagIcons: icons.Project1.techIcons,
+        pageUrl: 'https://www.elartedeforjarelhierro.com/'
+    },
+    {
+        title: 'Sitio oficial de la empresa Decimo Technology Solutions.',
+        firstDescription: 'La página oficial de una empresa dedicada al desarrollo de de software, videojuegos, así mismamente como páginas web.',
+        cardImage: ProjectImage2,
+        tagIcons: icons.Project2.techIcons,
+        pageUrl: 'https://decimotechnology.com/'
+    },
+    {
+        title: 'Portafolio haciendo uso de nuevas tecnologías',
+        firstDescription: 'Éste portafolio lo hice con la finalidad de tener un complemento ademas de mi CV, así como poder hacer uso de nuevas tecnologías que estan tomando fuerza actualmente.',
+        cardImage: ProjectImage3,
+        tagIcons: icons.Project3.techIcons,
+        pageUrl: ''
+    },
+]
+---
+
+<section class="mt-20">
+    {cardsData.map(({ title, firstDescription, secondDescription, cardImage, tagIcons, pageUrl }) => (
+        <article class="dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[70%] duration-200 hover:shadow-[0_4px_50px_0px_rgba(0,0,0,0.4)] rounded-2xl h-full flex flex-col justify-between cursor-pointer" redirect-url={pageUrl}>
+            <img src={cardImage.src} class="p-2 rounded-[19px]" />
+            <div class="px-5 gap-y-5 flex flex-col mt-4 mb-5 flex-grow">
+                <h4 class="dark:text-lightModeExperienceHover font-bold text-[20px] leading-6">{title}</h4>
+                <div class="flex flex-col gap-y-2 flex-grow">
+                    <p class="text-white text-base font-medium">{firstDescription}</p>
+                    <p class="text-white text-base font-medium">{secondDescription}</p>
+                </div>
+                <div class="items-center justify-between flex">
+                    <div class="flex gap-2">
+                        {Object.values(tagIcons).map(Icons => (
+                            <div class="bg-tagsBgColor bg-opacity-[9%] p-2 rounded-[10px]">
+                                <Icons class="h-5 w-5 dark:fill-darkModeOrange fill-lightTagIconColor" />
+                            </div>
+                        ))}
+                    </div>
+                    <CardSvg class="cardSvg dark:stroke-darkModeOrange"/>
+                </div>
+            </div>
+        </article>
+    ))}
+</section>
+
+<script>
+    document.querySelectorAll("article").forEach(article => {
+        article.addEventListener("click", () => {
+            const pageUrl = article.getAttribute("redirect-url");
+            if (pageUrl) {
+                window.open(pageUrl,'_blank');
+            }
+        });
+    });
+</script>
+
+<style>
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, 435px);
+        justify-content: center;
+        column-gap: 60px;
+        row-gap: 40px;
+    }
+
+    article:nth-child(3n) {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(2, 454px);
+        grid-auto-flow: dense;
+    }
+
+    article:nth-child(3n) > img {
+        height: 332px;
+        object-fit: cover;
+    }
+
+    article:nth-child(3n) > img:nth-child(1) {
+        grid-column-start: 2;
+    }
+
+    article > img {
+        transition: 300ms ease;
+        display: block;
+        width: 100%;
+    }
+
+    article:hover {
+        transform: translateY(10px);
+    }
+
+    article div > div > .cardSvg {
+        transform: rotate(0deg) scale(0);
+        transition: transform 0.3s ease;
+    }
+
+    article:hover div > div > .cardSvg {
+        transform: rotate(135deg) scale(1);
+    }
+</style>
