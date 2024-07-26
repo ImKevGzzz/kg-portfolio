@@ -5,6 +5,7 @@ import InstagramIcon from '../Icons/InstagramIcon.astro';
 import EmailIcon from '../Icons/EmailIcon.astro';
 import LinkedinIcon from '../Icons/LinkedinIcon.astro';
 import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
 
 const socialMedia = [
 	{
@@ -41,7 +42,7 @@ const socialMedia = [
 				<div class="flex gap-5 mt-10">
 					{socialMedia.map(({socialName, socialIcon: Icons}) => (
 						<button class="inline-flex items-center gap-[5px] py-2 px-[18px] rounded-2xl shadow-[4px_4px_0px_0px_rgba(255,144,64)] hover:shadow-[7px_7px_0px_0px_rgba(255,144,64)] duration-200 border-2 dark:border-darkModeOrange border-darkModeColor dark:bg-white bg-[#ff9040ed]">
-							<Icons class="fill-darkModeColor"/>
+							<Icons class="fill-darkModeColor w-6 h-6"/>
 							<p class="text-darkModeColor font-bold">{socialName}</p>
 						</button>
 					))}
@@ -49,6 +50,7 @@ const socialMedia = [
 			</section>
 		</article>
 		<Experience/>
+		<Projects/>
 	</main>
 </Layout>
 

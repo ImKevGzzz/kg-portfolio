@@ -8,7 +8,9 @@ export default {
 				'lightModeOrange': '#DA5B00',
 				'darkModeOrange': '#FF9040',
 				'lightModeBlue': '#3C3B6E',
-				'lightModeExperienceHover': '#FF8C39'
+				'lightModeExperienceHover': '#FF8C39',
+				'tagsBgColor': '#FFE1CC',
+				'lightTagIconColor': '#FFAB6D'
 			}
 		},
 	},
