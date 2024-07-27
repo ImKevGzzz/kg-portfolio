@@ -1,0 +1,85 @@
+---
+import HtmlIcon from "../Icons/TechnologiesIcons/HtmlIcon.astro"
+import CssIcon from "../Icons/TechnologiesIcons/CssIcon.astro"
+import JavaScriptIcon from "../Icons/TechnologiesIcons/JavaScriptIcon.astro"
+import TailwindIcon from "../Icons/TechnologiesIcons/TailwindIcon.astro"
+import ReactJsIcon from "../Icons/TechnologiesIcons/ReactJsIcon.astro"
+import NextJsIcon from "../Icons/TechnologiesIcons/NextJsIcon.astro"
+import GatsbyJsIcon from "../Icons/TechnologiesIcons/GatsbyJsIcon.astro"
+import GraphQLIcon from "../Icons/TechnologiesIcons/GraphQLIcon.astro"
+
+const techIcons = [
+    {
+        icons : HtmlIcon,
+        iconName: "HTML",
+    },
+    {
+        icons: CssIcon,
+        iconName: "CSS"
+    },
+    {
+        icons: JavaScriptIcon,
+        iconName: "JavaScript"
+    },
+    {
+        icons: TailwindIcon,
+        iconName: "TailwindCSS"
+    },
+    {
+        icons: ReactJsIcon,
+        iconName: "ReactJs"
+    },
+    {
+        icons: NextJsIcon,
+        iconName: "NextJs"
+    },
+    {
+        icons: GatsbyJsIcon,
+        iconName: "GatsbyJs"
+    },
+    {
+        icons: GraphQLIcon,
+        iconName: "GraphQL"
+    }
+]
+
+const duplicatedIcons = [...techIcons, ...techIcons];
+---
+
+<section class="rightSliderWrapper">
+    <div class="rightSlider">
+        {duplicatedIcons.map(({icons: Icons, iconName}) => (
+            <div class="flex flex-col justify-center text-center techIconsContainer">
+                <Icons class="fill-white w-[100px] h-auto mx-auto"/>
+                <p class="dark:text-darkModeOrange font-bold text-xl mt-3">{iconName}</p>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .rightSliderWrapper {
+        margin: 6rem 0 0 0;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .rightSlider {
+        animation: scrollRight 18s linear infinite;
+        display: flex;
+    }
+
+    .techIconsContainer {
+        flex: 0 0 auto;
+        width: 12.5%;
+    }
+
+    @keyframes scrollRight {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+</style>
