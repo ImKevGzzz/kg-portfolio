@@ -11,19 +11,23 @@ import SkillsAndTools from '../components/SkillsAndTools.astro';
 const socialMedia = [
 	{
 		socialName: 'Github',
-		socialIcon: GithubIcon
+		socialIcon: GithubIcon,
+		socialNetworkUrl: "https://github.com/ImKevGzzz"
 	},
 	{
 		socialName: 'LinkedIn',
-		socialIcon: LinkedinIcon
+		socialIcon: LinkedinIcon,
+		socialNetworkUrl: "https://www.linkedin.com/in/kev-garc%C3%ADa/"
 	},
 	{
 		socialName: 'Instagram',
-		socialIcon: InstagramIcon
+		socialIcon: InstagramIcon,
+		socialNetworkUrl: "https://www.instagram.com/__kev_garcia__/"
 	},
 	{
 		socialName: 'Contáctame',
-		socialIcon: EmailIcon
+		socialIcon: EmailIcon,
+		socialNetworkUrl: "mailto:kevingarciaoviedo05@gmail.com"
 	}
 ]
 ---
@@ -41,11 +45,11 @@ const socialMedia = [
 					<p class="dark:text-white text-darkModeColor text-xl font-bold">Tengo conocimientos en <spa class="dark:text-darkModeOrange text-lightModeOrange">UX/UI</spa>, esto en la creación de diseños y/o mockup's.</p>
 				</div>
 				<div class="flex gap-5 mt-10">
-					{socialMedia.map(({socialName, socialIcon: Icons}) => (
-						<button class="inline-flex items-center gap-[5px] py-2 px-[18px] rounded-2xl shadow-[4px_4px_0px_0px_rgba(255,144,64)] hover:shadow-[7px_7px_0px_0px_rgba(255,144,64)] duration-200 border-2 dark:border-darkModeOrange border-darkModeColor dark:bg-white bg-[#ff9040ed]">
+					{socialMedia.map(({socialName, socialIcon: Icons, socialNetworkUrl}) => (
+						<a class="inline-flex items-center gap-[5px] py-2 px-[18px] rounded-2xl shadow-[4px_4px_0px_0px_rgba(255,144,64)] hover:shadow-[7px_7px_0px_0px_rgba(255,144,64)] duration-200 border-2 dark:border-darkModeOrange border-darkModeColor dark:bg-white bg-[#ff9040ed] cursor-pointer" href={socialNetworkUrl} role="link" target="_blank">
 							<Icons class="fill-darkModeColor w-6 h-6"/>
 							<p class="text-darkModeColor font-bold">{socialName}</p>
-						</button>
+						</a>
 					))}
 				</div>
 			</section>
