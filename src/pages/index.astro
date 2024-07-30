@@ -34,7 +34,7 @@ const socialMedia = [
 
 <Layout title="Portfolio">
 	<main class="flex flex-col">
-		<article class="mt-24 grid grid-cols-[355px,683px] gap-10 w-[1086px] h-[355px] mx-auto">
+		<article class="grid grid-cols-[355px,683px] gap-10 w-[1086px] h-[355px] mx-auto">
 			<section>
 				<img class="rounded-[500px] w-[355px] h-[355px] shadow-[0px_5px_50px_0px_rgba(255,144,64,0.2)]" src="/ProfilePictureKev.webp" alt="Profile Picture"/>
 			</section>
@@ -46,7 +46,7 @@ const socialMedia = [
 				</div>
 				<div class="flex gap-5 mt-10">
 					{socialMedia.map(({socialName, socialIcon: Icons, socialNetworkUrl}) => (
-						<a class="inline-flex items-center gap-[5px] py-2 px-[18px] rounded-2xl shadow-[4px_4px_0px_0px_rgba(255,144,64)] hover:shadow-[7px_7px_0px_0px_rgba(255,144,64)] duration-200 border-2 dark:border-darkModeOrange border-darkModeColor dark:bg-white bg-[#ff9040ed] cursor-pointer" href={socialNetworkUrl} role="link" target="_blank">
+						<a class="inline-flex items-center gap-[5px] py-2 px-[18px] rounded-2xl dark:shadow-[4px_4px_0px_0px_rgba(255,144,64,1)] shadow-[4px_4px_0px_0px_rgba(37,34,56,1)] dark:hover:shadow-[7px_7px_0px_0px_rgba(255,144,64,1)] hover:shadow-[7px_7px_0px_0px_rgba(37,34,56,1)] duration-200 border-2 dark:border-darkModeOrange border-darkModeColor dark:bg-white bg-[#ff9040] cursor-pointer transition" href={socialNetworkUrl} role="link" target="_blank">
 							<Icons class="fill-darkModeColor w-6 h-6"/>
 							<p class="text-darkModeColor font-bold">{socialName}</p>
 						</a>
@@ -60,3 +60,19 @@ const socialMedia = [
 	</main>
 </Layout>
 
+<style>
+	article {
+		margin: 200px auto 0 auto;
+	}
+</style>
+
+<script>
+	(function() {
+	  const theme = localStorage.getItem('theme');
+	  if (theme) {
+		document.documentElement.classList.add(theme);
+	  } else {
+		document.documentElement.classList.add('dark');
+	  }
+	})();
+  </script>

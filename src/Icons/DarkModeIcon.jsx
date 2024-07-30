@@ -1,6 +1,6 @@
 import React from "react";
 
-const DarkModeIcon = ({className, hoverIcon}) => (
+const DarkModeIcon = ({className}) => (
   <svg
     width="42"
     height="42"
@@ -8,16 +8,7 @@ const DarkModeIcon = ({className, hoverIcon}) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
-    style={
-      hoverIcon
-        ? {
-            filter:
-              "drop-shadow(0px 0px 10px rgb(255, 144, 64))",
-            transitionDuration: "150ms",
-            transitionTimingFunction: "ease",
-          }
-        : { filter: "none" }
-    }
+
   >
     <g clipPath="url(#clip0_154_17)">
       <path

@@ -50,7 +50,7 @@ const duplicatedIcons = [...techIcons, ...techIcons];
     <div class="leftSlider">
         {duplicatedIcons.map(({icons: Icons, iconName}) => (
             <div class="flex flex-col justify-center text-center techIconsContainer">
-                <Icons class="fill-white w-[100px] h-auto mx-auto"/>
+                <Icons class="dark:fill-white fill-lightModeOrange w-[100px] h-auto mx-auto"/>
                 <p class="dark:text-darkModeOrange font-bold text-xl mt-3">{iconName}</p>
             </div>
         ))}

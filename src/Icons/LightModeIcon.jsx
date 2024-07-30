@@ -1,6 +1,6 @@
 import React from "react";
 
-const LightModeIcon = ({className, hoverIcon}) => (
+const LightModeIcon = ({className}) => (
 <svg
   className={className}
   width="24"
@@ -8,16 +8,6 @@ const LightModeIcon = ({className, hoverIcon}) => (
   viewBox="0 0 24 24"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  style={
-    hoverIcon
-      ? {
-          filter:
-            "drop-shadow(0px 0px 10px rgb(255, 144, 64))",
-          transitionDuration: "150ms",
-          transitionTimingFunction: "ease",
-        }
-      : { filter: "none" }
-  }
 >
   <g clipPath="url(#clip0_135_27)">
     <path

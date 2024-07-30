@@ -2,7 +2,7 @@
 import PageTheme from "./PageTheme";
 ---
 
-<header class="flex px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center">
+<header class="flex fixed z-5 px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center">
     <section class="flex items-center gap-3">
         <p class="font-semibold text-base">Es</p>
         <label class="relative inline-flex  cursor-pointer items-center">
@@ -20,7 +20,7 @@ import PageTheme from "./PageTheme";
         <a>Contacto</a>
     </nav>
     <section>
-        <PageTheme client:visible/>
+        <PageTheme client:only/>
     </section>
 </header>
 
@@ -28,7 +28,7 @@ import PageTheme from "./PageTheme";
     nav > a {
         cursor: pointer;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         padding-inline: 10px;
         transition: ease .4s color;
     }
