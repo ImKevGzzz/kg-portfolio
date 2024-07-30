@@ -1,0 +1,84 @@
+---
+import NpmIcon from "../Icons/TechnologiesIcons/NpmIcon.astro"
+import DrupalIcon from "../Icons/TechnologiesIcons/DrupalIcon.astro"
+import GitIcon from "../Icons/TechnologiesIcons/GitIcon.astro"
+import MySqlIcon from "../Icons/TechnologiesIcons/MysqlIcon.astro"
+import LinuxIcon from "../Icons/TechnologiesIcons/LinuxIcon.astro"
+import FigmaIcon from "../Icons/TechnologiesIcons/FigmaIcon.astro"
+import AstroIcon from "../Icons/TechnologiesIcons/AstroJsIcon.astro"
+import GithubIcon from "../Icons/GithubIcon.astro"
+
+const techIcons = [
+    {
+        icons : GithubIcon,
+        iconName: "Github",
+    },
+    {
+        icons: NpmIcon,
+        iconName: "NPM"
+    },
+    {
+        icons: DrupalIcon,
+        iconName: "Drupal"
+    },
+    {
+        icons: GitIcon,
+        iconName: "Git"
+    },
+    {
+        icons: MySqlIcon,
+        iconName: "MySQL"
+    },
+    {
+        icons: LinuxIcon,
+        iconName: "Linux"
+    },
+    {
+        icons: FigmaIcon,
+        iconName: "Figma"
+    },
+    {
+        icons: AstroIcon,
+        iconName: "AstroJs"
+    }
+]
+
+const duplicatedIcons = [...techIcons, ...techIcons];
+---
+
+<section class="leftSliderWrapper">
+    <div class="leftSlider">
+        {duplicatedIcons.map(({icons: Icons, iconName}) => (
+            <div class="flex flex-col justify-center text-center techIconsContainer">
+                <Icons class="dark:fill-white fill-lightModeOrange w-[100px] h-auto mx-auto"/>
+                <p class="dark:text-darkModeOrange font-bold text-xl mt-3">{iconName}</p>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .leftSliderWrapper {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .leftSlider {
+        animation: scrollLeft 18s linear infinite;
+        display: flex;
+    }
+
+    .techIconsContainer {
+        flex: 0 0 auto;
+        width: 12.5%;
+    }
+
+    @keyframes scrollLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>

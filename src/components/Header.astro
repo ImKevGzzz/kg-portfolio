@@ -2,13 +2,13 @@
 import PageTheme from "./PageTheme";
 ---
 
-<header class="flex px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center">
+<header class="flex fixed z-5 px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center">
     <section class="flex items-center gap-3">
         <p class="font-semibold text-base">Es</p>
         <label class="relative inline-flex  cursor-pointer items-center">
             <input id="switch" type="checkbox" class="peer sr-only" />
             <label for="switch" class="hidden"></label>
-            <div class="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-darkModeColor after:transition-all after:content-[''] peer-checked:after:translate-x-full"></div>
+            <div class="peer h-6 w-11 rounded-full dark:bg-white bg-darkModeColor after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full dark:after:bg-darkModeColor after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full"></div>
         </label>
         <p class="font-semibold text-base">En</p>
     </section>
@@ -20,7 +20,7 @@ import PageTheme from "./PageTheme";
         <a>Contacto</a>
     </nav>
     <section>
-        <PageTheme client:visible/>
+        <PageTheme client:only/>
     </section>
 </header>
 
@@ -28,7 +28,7 @@ import PageTheme from "./PageTheme";
     nav > a {
         cursor: pointer;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         padding-inline: 10px;
         transition: ease .4s color;
     }
