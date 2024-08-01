@@ -25,11 +25,11 @@ const themePage = [
         <DarkModeIcon id="dark" class="themeIcon absolute size-5 transition-all dark:fill-white fill-lightTagIconColor"/>
         <SystemThemeIcon id="system" class="themeIcon absolute size-5 transition-all dark:fill-white fill-lightTagIconColor dark:stroke-white stroke-lightTagIconColor"/>
     </button>
-    <div id="themeMenu" class="absolute hidden scale-80 top-[48px] right-0 dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] rounded border dark:border-darkModeOrange border-lightTagIconColor dark:border-opacity-100 backdrop-blur-sm bg-darkModeColor bg-opacity-[90%] shadow-[0px_0px_30px_0px_rgba(0,0,0,0.3)] p-[3px]">
+    <div id="themeMenu" class="absolute hidden scale-80 top-[48px] right-0 dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] rounded backdrop-blur-sm bg-darkModeColor bg-opacity-[90%] shadow-[0px_0px_30px_0px_rgba(0,0,0,0.3)] p-[3px]">
         <ul>
             {
                 themePage.map(({icons: Icons, mode}) =>(
-                    <li class="themesMenuOptions flex items-center gap-2 px-3 py-3 hover:bg-lightTagIconColor/15 dark:hover:bg-orange-400/50 rounded-sm cursor-pointer transition-all">
+                    <li class="themesMenuOptions flex items-center gap-2 px-3 py-3 hover:bg-lightTagIconColor/15 dark:hover:bg-orange-400/30 rounded-sm cursor-pointer transition-all">
                         <Icons class="dark:fill-white dark:stroke-white fill-lightTagIconColor stroke-lightTagIconColor size-4 iconsStyle"/>
                         <p class="dark:text-white text-lightTagIconColor font-bold">{mode}</p>
                     </li>
