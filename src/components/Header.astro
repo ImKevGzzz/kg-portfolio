@@ -1,39 +1,51 @@
 ---
 import PageTheme from "./PageTheme.astro";
+
+const navbarItems = [
+    {
+        itemName: "Sobre mí",
+        itemLabel: "sobre-mi",
+        itemUrl: "#sobre-mi"
+    },
+    {
+        itemName: "Experiencia",
+        itemLabel: "experiencia",
+        itemUrl: "#experiencia"
+    },
+    {
+        itemName: "Proyectos",
+        itemLabel: "proyectos",
+        itemUrl: "#proyectos"
+    },
+    {
+        itemName: "Habiliades y Herramientas",
+        itemLabel: "habilidades-y-herramientas",
+        itemUrl: "#habilidades-y-herramientas"
+    },
+    {
+        itemName: "Contacto",
+        itemLabel: "contacto",
+        itemUrl: "mailto:kevingarciaoviedo05@gmail.com"
+    }
+]
 ---
 
-<header class="flex fixed z-10 px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center">
+<header class="flex sticky top-0 z-10 px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] backdrop-blur-xl border-b-2 dark:border-lightModeExperienceHover border-lightTagIconColor">
     <section class="flex items-center gap-3">
-        <p class="font-semibold text-base">Es</p>
+        <p class="font-semibold text-base dark:text-white text-lightTagIconColor">Es</p>
         <label class="relative inline-flex  cursor-pointer items-center">
             <input id="switch" type="checkbox" class="peer sr-only" />
             <label for="switch" class="hidden"></label>
-            <div class="peer h-6 w-11 rounded-full dark:bg-white bg-darkModeColor after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full dark:after:bg-darkModeColor after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full"></div>
+            <div class="peer h-6 w-11 rounded-full dark:bg-white bg-lightTagIconColor after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full dark:after:bg-darkModeColor after:bg-darkModeColor after:bg-opacity-[90%] after:transition-all after:content-[''] peer-checked:after:translate-x-full"></div>
         </label>
-        <p class="font-semibold text-base">En</p>
+        <p class="font-semibold text-base dark:text-white text-lightTagIconColor">En</p>
     </section>
     <nav class="gap-5 flex">
-        <a>Sobre mí</a>
-        <a>Experiencia</a>
-        <a>Proyectos</a>
-        <a>Habilidades y Herramientas</a>
-        <a>Contacto</a>
+        {navbarItems.map(({itemName, itemLabel, itemUrl}) => (
+            <a class="dark:text-white text-base font-bold px-[10px] cursor-pointer dark:hover:text-lightTagIconColor text-lightTagIconColor hover:text-white transition-all duration-300" href={itemUrl} aria-label={itemLabel}>{itemName}</a>
+        ))}
     </nav>
     <section>
         <PageTheme />
     </section>
 </header>
-
-<style>
-    nav > a {
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 700;
-        padding-inline: 10px;
-        transition: ease .4s color;
-    }
-
-    nav > a:hover {
-        color: #FF9040;
-    }
-</style>

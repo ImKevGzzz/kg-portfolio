@@ -51,7 +51,7 @@ const duplicatedIcons = [...techIcons, ...techIcons];
         {duplicatedIcons.map(({icons: Icons, iconName}) => (
             <div class="flex flex-col justify-center text-center techIconsContainer">
                 <Icons class="dark:fill-white fill-lightModeOrange w-[100px] h-auto mx-auto"/>
-                <p class="dark:text-darkModeOrange font-bold text-xl mt-3">{iconName}</p>
+                <p class="dark:text-darkModeOrange text-darkModeColor font-bold text-xl mt-3">{iconName}</p>
             </div>
         ))}
     </div>
