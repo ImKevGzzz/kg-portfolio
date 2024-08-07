@@ -1,51 +1,75 @@
 ---
+import { useTranslations, getLangFromUrl } from "../i18n/utils";
 import PageTheme from "./PageTheme.astro";
+import ToggleLenguange from "../components/ToggleLeanguage.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const navbarItems = [
     {
-        itemName: "Sobre mí",
+        itemName: t('nav.aboutMe'),
         itemLabel: "sobre-mi",
-        itemUrl: "#sobre-mi"
+        itemUrl: lang === 'es' ? `/#sobre-mi` : `/${lang}/#sobre-mi`,
+        itemId: "sobre-mi"
     },
     {
-        itemName: "Experiencia",
+        itemName: t('nav.experience'),
         itemLabel: "experiencia",
-        itemUrl: "#experiencia"
+        itemUrl: lang === 'es' ? `/#experiencia` : `/${lang}/#experiencia`,
+        itemId: "experiencia"
     },
     {
-        itemName: "Proyectos",
+        itemName: t('nav.projects'),
         itemLabel: "proyectos",
-        itemUrl: "#proyectos"
+        itemUrl: lang === 'es' ? `/#proyectos` : `/${lang}/#proyectos`,
+        itemId: "proyectos"
     },
     {
-        itemName: "Habiliades y Herramientas",
+        itemName: t('nav.skillsAndTools'),
         itemLabel: "habilidades-y-herramientas",
-        itemUrl: "#habilidades-y-herramientas"
+        itemUrl: lang === 'es' ? `/#habilidades-y-herramientas` : `/${lang}/#habilidades-y-herramientas`,
+        itemId: "habilidades-y-herramientas"
     },
     {
-        itemName: "Contacto",
+        itemName: t('nav.contact'),
         itemLabel: "contacto",
         itemUrl: "mailto:kevingarciaoviedo05@gmail.com"
     }
-]
+];
 ---
 
 <header class="flex sticky top-0 z-10 px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] backdrop-blur-xl border-b-[2px] dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor">
-    <section class="flex items-center gap-3">
-        <p class="font-semibold text-base dark:text-white text-lightTagIconColor">Es</p>
-        <label class="relative inline-flex  cursor-pointer items-center">
-            <input id="switch" type="checkbox" class="peer sr-only" />
-            <label for="switch" class="hidden"></label>
-            <div class="peer h-6 w-11 rounded-full dark:bg-white bg-lightTagIconColor after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full dark:after:bg-darkModeColor after:bg-darkModeColor after:bg-opacity-[90%] after:transition-all after:content-[''] peer-checked:after:translate-x-full"></div>
-        </label>
-        <p class="font-semibold text-base dark:text-white text-lightTagIconColor">En</p>
+    <section>
+        <ToggleLenguange/>
     </section>
-    <nav class="gap-5 flex">
-        {navbarItems.map(({itemName, itemLabel, itemUrl}) => (
-            <a class="dark:text-white text-base font-bold px-[10px] cursor-pointer dark:hover:text-lightTagIconColor text-lightTagIconColor hover:text-white transition-all duration-300" href={itemUrl} aria-label={itemLabel}>{itemName}</a>
+    <nav class="gap-5 flex" id="navbar">
+        {navbarItems.map(({itemName, itemLabel, itemUrl, itemId}) => (
+            <a class="dark:text-white text-base font-bold px-[10px] cursor-pointer dark:hover:text-lightTagIconColor text-lightTagIconColor hover:text-white transition-all duration-300" href={itemUrl} data-id={itemId} aria-label={itemLabel}>{itemName}</a>
         ))}
     </nav>
     <section>
         <PageTheme />
     </section>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar');
+    navbar.addEventListener('click', (event) => {
+        const target = event.target as Element;
+        const link = target.closest('a');
+        if (!link) return;
+
+        const sectionId = link.getAttribute('data-id');
+        if (sectionId) {
+            event.preventDefault();
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                history.pushState(null, '', link.getAttribute('href'));
+            }
+        }
+    });
+});
+</script>

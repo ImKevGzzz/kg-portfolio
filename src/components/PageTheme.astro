@@ -45,14 +45,30 @@ const themePage = [
         animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
 
+    #themeMenu.close {
+        animation: scale-down-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
     @keyframes scale-up-center {
         from {
-            transform: scale(0.8);
             opacity: 0;
+            transform: scale(0.8);
         }
         to {
-            transform: scale(1);
             opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes scale-down-center {
+        from {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(0.8);
+            opacity: 0;
         }
     }
 
@@ -105,12 +121,37 @@ const themePage = [
 
     updateTheme();
 
-    document.addEventListener("click", () => menuThemes.classList.remove("open"));
+/*     document.addEventListener("click", () => menuThemes.classList.remove("open")); */
+
+    document.addEventListener("click", () => {
+        if (menuThemes.classList.contains("open")) {
+            menuThemes.classList.remove("open");
+            void menuThemes.offsetWidth;
+            menuThemes.classList.add("close");
+            setTimeout(() => {
+                menuThemes.classList.remove("close");
+                menuThemes.style.display = "none";
+            }, 150);
+        }
+    })
 
     document.getElementById("themeToggleButton").addEventListener("click", (e) => {
         e.stopPropagation();
         const isClosed = !menuThemes.classList.contains("open");
-        menuThemes.classList[isClosed ? "add" : "remove"]("open");
+        /* menuThemes.classList[isClosed ? "add" : "remove"]("open"); */
+        if (isClosed) {
+            menuThemes.style.display = "inline";
+            void menuThemes.offsetWidth;
+            menuThemes.classList.add("open");
+        } else {
+            menuThemes.classList.remove("open");
+            void menuThemes.offsetWidth;
+            menuThemes.classList.add("close");
+            setTimeout(() => {
+                menuThemes.classList.remove("close");
+                menuThemes.style.display = "none";
+            }, 150);
+        }
     })
 
     document.querySelectorAll(".themesMenuOptions").forEach((element) => {
