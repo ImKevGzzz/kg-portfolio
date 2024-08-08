@@ -1,0 +1,65 @@
+{
+    "ABOUT_ME": {
+        "TITLE": "Hi, I'm ",
+        "DEV_NAME": "Kevin García",
+        "DESCRIPTION_N1_POSITION": "Front-end Developer",
+        "DESCRIPTION_N1": "with 2 year's of experience, graduated from Systems Engineering.",
+        "DESCRIPTION_N2_P1": "I've knowledge on ",
+        "DESCRIPTION_N2_p2": ", this on the creation of design's as well as mockup's",
+        "DESCRIPTION_N2_POSITION": "UX/UI",
+        "CONTACT_ME_BUTTON_TEXT": "Contact me"
+    },
+    "EXPERIENCE": {
+        "TITLE": "Experience",
+        "CARDS": [
+            {
+                "CARD_TITLE": "Freelance Project",
+                "COMPANY_NAME": "El Arte de Forjar el Hierro",
+                "TIME_POSITION": "December 2023 - January 2024",
+                "DESCRIPTION_N1": "Creation of the website design, moreover the development of this using NextJs for the Front-end and Drupal 10 Headless for the Backend."
+            },
+            {
+                "CARD_TITLE": "Intern Web Developer",
+                "COMPANY_NAME": "Decimo Technology Solutions",
+                "TIME_POSITION": "March 2022 - November 2023",
+                "DESCRIPTION_N1": "Training in the technologies used in the company. Development of the components assigned in the project of the company's homepage, using GatsbyJs for the Front-end and Drupal 9 for the Back-end",
+                "DESCRIPTION_N2": "Development of the external portal, as well as other functionalities in the TMS (Talent Management System) with Open Source approach, using Drupal 10."
+            }
+        ]
+    },
+    "PROJECTS": {
+        "TITLE": "Projects",
+        "CARDS": [
+            {
+                "CARD_TITLE": "Official company site of El arte de forjar el hierro",
+                "CARD_DESCRIPTION_N1": "The porpuse of this business is to translate the client's ideas into iron/metal works.",
+                "CARD_DESCRIPTION_N2": "The objective of the website it's to showcase the work that this company does daily.",
+                "CARD_URL": "https://www.elartedeforjarelhierro.com/",
+                "CARD_IMG_ALT": "Image from El Arte de Forjar el Hierro website"
+            },
+            {
+                "CARD_TITLE": "Official company site of Decimo Technology Solutions",
+                "CARD_DESCRIPTION_N1": "The official website for a company dedicated to the development of software, videogames, as well as web pages.",
+                "CARD_URL": "https://decimotechnology.com/",
+                "CARD_IMG_ALT": "Image from Decimo Technology Solution website"
+            },
+            {
+                "CARD_TITLE": "Portfolio using new technologies",
+                "CARD_DESCRIPTION_N1": "I made this portfolio in order to have an complement, in addition to my CV, furthermore to be able to make use of new technologies that are currently getting important progressively now days",
+                "CARD_URL": "https://kevin-garcia.vercel.app/",
+                "CARD_IMG_ALT": "Image from Kevin Garcías's portfolio website"
+            }
+        ]
+    },
+    "SKILLS_AND_TOOLS": {
+        "TITLE": "SKills and Tools"
+    },
+    "FOOTER": {
+        "DESCRIPTION": "Developed by Kevin García"
+    },
+    "PAGE_THEME": {
+        "DARK_THEME": "Dark",
+        "LIGHT_THEME": "Light",
+        "SYSTEM_THEME": "System"
+    }
+}
