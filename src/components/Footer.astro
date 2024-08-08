@@ -1,9 +1,13 @@
 ---
+import { getI18n } from "@src/i18n"
 import EmailIcon from "../Icons/EmailIcon.astro"
 import GithubIcon from "../Icons/GithubIcon.astro"
 import InstagramIcon from "../Icons/InstagramIcon.astro"
 import LinkedinIcon from "../Icons/LinkedinIcon.astro"
 import FooterIcons from "./FooterIcons.astro"
+
+const {currentLocale} = Astro;
+const i18n = getI18n({currentLocale});
 
 const iconsArray = [
     {
@@ -27,7 +31,7 @@ const iconsArray = [
 ---
 
 <footer class="mt-10 mb-3 dark:bg-darkModeOrange dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[70%] mx-5 rounded-[50px] px-10 p-5 justify-between flex items-center">
-    <p class="text-white font-semibold">Desarrollado por Kevin García</p>
+    <p class="text-white font-semibold">{i18n.FOOTER.DESCRIPTION}</p>
     <li class="list-none flex gap-8">
         {iconsArray.map(({footerIcons: Icons, iconUrl}) => (
             <FooterIcons href={iconUrl} class="duration-200 hover:scale-75">

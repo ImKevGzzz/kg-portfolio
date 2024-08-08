@@ -1,20 +1,24 @@
 ---
+import { getI18n } from "@src/i18n";
 import DarkModeIcon from "../Icons/DarkModeIcon.astro"
 import LightModeIcon from "../Icons/LightModeIcon.astro"
 import SystemThemeIcon from "../Icons/SystemThemeIcon.astro"
 
-const themePage = [
+const {currentLocale} = Astro;
+const i18n = getI18n({currentLocale});
+
+const THEME_PAGE = [
     {
         icons: LightModeIcon,
-        mode: "Light",
+        mode: i18n.PAGE_THEME.LIGHT_THEME
     },
     {
         icons: DarkModeIcon,
-        mode: "Dark",
+        mode: i18n.PAGE_THEME.DARK_THEME
     },
     {
         icons: SystemThemeIcon,
-        mode: "System",
+        mode: i18n.PAGE_THEME.SYSTEM_THEME
     }
 ]
 ---
@@ -28,7 +32,7 @@ const themePage = [
     <div id="themeMenu" class="absolute hidden scale-80 top-[48px] right-0 dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] rounded backdrop-blur-sm bg-darkModeColor bg-opacity-[90%] shadow-[0px_0px_30px_0px_rgba(0,0,0,0.3)] p-[3px]">
         <ul>
             {
-                themePage.map(({icons: Icons, mode}) =>(
+                THEME_PAGE.map(({icons: Icons, mode}) =>(
                     <li class="themesMenuOptions flex items-center gap-2 px-3 py-3 hover:bg-lightTagIconColor/15 dark:hover:bg-orange-400/30 rounded-sm cursor-pointer transition-all">
                         <Icons class="dark:fill-white dark:stroke-white fill-lightTagIconColor stroke-lightTagIconColor size-4 iconsStyle"/>
                         <p class="dark:text-white text-lightTagIconColor font-bold">{mode}</p>
@@ -91,6 +95,15 @@ const themePage = [
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
     const menuThemes = document.getElementById("themeMenu");
 
+    const THEME_MODE_MAP = {
+        "Dark": "dark",
+        "Oscuro": "dark",
+        "Light": "light",
+        "Claro": "light",
+        "System": "system",
+        "Sistema": "system"
+    };
+
     const getThemePreference = () => {
         if (typeof localStorage !== "undefined") {
             return localStorage.getItem("theme") ?? "system";
@@ -99,8 +112,9 @@ const themePage = [
     }
 
     const updateIconTheme = (themePreference) => {
+        const themeId = THEME_MODE_MAP[themePreference] || themePreference;
         document.querySelectorAll(".themeIcon").forEach((element) => {
-            element.style.scale = element.id === themePreference ? "1" : "0";
+            element.style.scale = element.id === themeId ? "1" : "0";
         })
     }
 
@@ -121,8 +135,6 @@ const themePage = [
 
     updateTheme();
 
-/*     document.addEventListener("click", () => menuThemes.classList.remove("open")); */
-
     document.addEventListener("click", () => {
         if (menuThemes.classList.contains("open")) {
             menuThemes.classList.remove("open");
@@ -138,7 +150,6 @@ const themePage = [
     document.getElementById("themeToggleButton").addEventListener("click", (e) => {
         e.stopPropagation();
         const isClosed = !menuThemes.classList.contains("open");
-        /* menuThemes.classList[isClosed ? "add" : "remove"]("open"); */
         if (isClosed) {
             menuThemes.style.display = "inline";
             void menuThemes.offsetWidth;
@@ -156,7 +167,9 @@ const themePage = [
 
     document.querySelectorAll(".themesMenuOptions").forEach((element) => {
         element.addEventListener("click", (e) => {
-            localStorage.setItem("theme", e.target.innerText.toLowerCase().trim());
+            const themeText = e.target.innerText.toLowerCase().trim();
+            const themePreference = THEME_MODE_MAP[themeText.charAt(0).toUpperCase() + themeText.slice(1)];
+            localStorage.setItem("theme", themePreference);
             updateTheme();
         })
     })
