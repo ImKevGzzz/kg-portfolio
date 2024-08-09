@@ -7,7 +7,7 @@ const {currentLocale} = Astro;
 const i18n = getI18n({currentLocale});
 ---
 
-<section id="habilidades-y-herramientas" class="my-20 scroll-mt-[100px]">
+<section id={i18n.SECTIONS_ID.SKILLS_AND_TOOLS_ID} class="my-20 scroll-mt-[100px]">
     <h2 class="dark:text-darkModeOrange text-lightModeOrange text-5xl font-bold text-center">{i18n.SKILLS_AND_TOOLS.TITLE}</h2>
     <div>
         <RightSlider/>
