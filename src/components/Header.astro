@@ -1,39 +1,42 @@
 ---
+import { getI18n } from "@src/i18n";
 import { useTranslations, getLangFromUrl } from "../i18n/utils";
 import PageTheme from "./PageTheme.astro";
 import ToggleLanguage from "./ToggleLanguage.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const {currentLocale} = Astro;
+const i18n = getI18n({currentLocale});
 
 const navbarItems = [
     {
         itemName: t('nav.aboutMe'),
-        itemLabel: "sobre-mi",
-        itemUrl: lang === 'es' ? `/#sobre-mi` : `/${lang}/#sobre-mi`,
-        itemId: "sobre-mi"
+        itemLabel: i18n.SECTIONS_LABEL.ABOUT_ME_LABEL,
+        itemUrl: lang === 'es' ? `/#${i18n.SECTIONS_ID.ABOUT_ME_ID}` : `/${lang}/#${i18n.SECTIONS_ID.ABOUT_ME_ID}`,
+        itemId: i18n.SECTIONS_ID.ABOUT_ME_ID
     },
     {
         itemName: t('nav.experience'),
-        itemLabel: "experiencia",
-        itemUrl: lang === 'es' ? `/#experiencia` : `/${lang}/#experiencia`,
-        itemId: "experiencia"
+        itemLabel: i18n.SECTIONS_LABEL.EXPERIENCE_LABEL,
+        itemUrl: lang === 'es' ? `/#${i18n.SECTIONS_ID.EXPERIENCE_ID}` : `/${lang}/#${i18n.SECTIONS_ID.EXPERIENCE_ID}`,
+        itemId: i18n.SECTIONS_ID.EXPERIENCE_ID
     },
     {
         itemName: t('nav.projects'),
-        itemLabel: "proyectos",
-        itemUrl: lang === 'es' ? `/#proyectos` : `/${lang}/#proyectos`,
-        itemId: "proyectos"
+        itemLabel: i18n.SECTIONS_LABEL.PROJECTS_LABEL,
+        itemUrl: lang === 'es' ? `/#${i18n.SECTIONS_ID.PROJECTS_ID}` : `/${lang}/#${i18n.SECTIONS_ID.PROJECTS_ID}`,
+        itemId: i18n.SECTIONS_ID.PROJECTS_ID
     },
     {
         itemName: t('nav.skillsAndTools'),
-        itemLabel: "habilidades-y-herramientas",
-        itemUrl: lang === 'es' ? `/#habilidades-y-herramientas` : `/${lang}/#habilidades-y-herramientas`,
-        itemId: "habilidades-y-herramientas"
+        itemLabel: i18n.SECTIONS_LABEL.SKILLS_AND_TOOLS_LABEL,
+        itemUrl: lang === 'es' ? `/#${i18n.SECTIONS_ID.SKILLS_AND_TOOLS_ID}` : `/${lang}/#${i18n.SECTIONS_ID.SKILLS_AND_TOOLS_ID}`,
+        itemId: i18n.SECTIONS_ID.SKILLS_AND_TOOLS_ID
     },
     {
         itemName: t('nav.contact'),
-        itemLabel: "contacto",
+        itemLabel: i18n.SECTIONS_LABEL.CONTACT_LABEL,
         itemUrl: "mailto:kevingarciaoviedo05@gmail.com"
     }
 ];
