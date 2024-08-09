@@ -61,5 +61,18 @@
         "DARK_THEME": "Oscuro",
         "LIGHT_THEME": "Claro",
         "SYSTEM_THEME": "Sistema"
+    },
+    "SECTIONS_ID": {
+        "ABOUT_ME_ID": "sobre-mi",
+        "EXPERIENCE_ID": "experiencia",
+        "PROJECTS_ID": "proyectos",
+        "SKILLS_AND_TOOLS_ID": "habilidades-y-herramientas"
+    },
+    "SECTIONS_LABEL": {
+        "ABOUT_ME_LABEL": "sobre-mi",
+        "EXPERIENCE_LABEL": "experiencia",
+        "PROJECTS_LABEL": "proyectos",
+        "SKILLS_AND_TOOLS_LABEL": "habilidades-y-herramientas",
+        "CONTACT_LABEL": "contacto"
     }
 }
