@@ -1,7 +1,7 @@
 ---
 import { useTranslations, getLangFromUrl } from "../i18n/utils";
 import PageTheme from "./PageTheme.astro";
-import ToggleLenguange from "../components/ToggleLeanguage.astro";
+import ToggleLanguage from "./ToggleLanguage.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -41,7 +41,7 @@ const navbarItems = [
 
 <header class="flex sticky top-0 z-10 px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] backdrop-blur-xl border-b-[2px] dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor">
     <section>
-        <ToggleLenguange/>
+        <ToggleLanguage/>
     </section>
     <nav class="gap-5 flex" id="navbar">
         {navbarItems.map(({itemName, itemLabel, itemUrl, itemId}) => (
