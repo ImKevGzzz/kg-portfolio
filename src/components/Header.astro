@@ -3,6 +3,7 @@ import { getI18n } from "@src/i18n";
 import { useTranslations, getLangFromUrl } from "../i18n/utils";
 import PageTheme from "./PageTheme.astro";
 import ToggleLanguage from "./ToggleLanguage.astro";
+import Logo from "@src/Icons/Logo.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -55,6 +56,123 @@ const navbarItems = [
         <PageTheme />
     </section>
 </header>
+<header class="responsiveNavbar hidden dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] border-b-[2px] dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor backdrop-blur-xl">
+    <Logo class="size-11 absolute"/>
+    <label class="sidebarHamburger">
+        <input type="checkbox">
+    </label>
+    <aside class="sidebar dark:bg-[#33272a] bg-darkModeColor bg-opacity-[90%]">
+        <>
+            <nav class="text-center flex flex-col">
+                {navbarItems.map(({itemName, itemLabel, itemUrl, itemId}) => (
+                    <a class="dark:text-white text-base font-bold px-[10px]" href={itemUrl} aria-label={itemLabel} data-id={itemId}>
+                        {itemName}
+                    </a>
+                ))}
+            </nav>
+            <div>
+                <ToggleLanguage/>
+            </div>
+            <div>
+                <PageTheme/>
+            </d>
+        </section>
+    </aside>
+</header>
+
+<style>
+    :root {
+        --animationTiming: 200ms ease-in-out;
+        --barHeight: 2.5px;
+        --barWidth: 25px;
+        --foreground: #FF8C39;
+        --hamburgerGap: 4.5px;
+        --hamburgerHeight: calc(var(--barHeight) * 3 + var(--hamburgerGap) * 2);
+        --hamburgerMargin: 5px;
+        --xWidth: calc(var(--hamburgerHeight) * 1.41421356237);
+    }
+
+    .responsiveNavbar {
+        margin: 0;
+        position: fixed;
+        height: 66px;
+        width: 100%;
+    }
+
+    .sidebarHamburger {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: var(--hamburgerGap);
+        left: 4.5rem;
+        position: absolute;
+        top: 40%;
+        width: max-content;
+        z-index: 4;
+    }
+
+    .sidebarHamburger:has(input:focus-visible)::before,
+    .sidebarHamburger:has(input:focus-visible)::after,
+    .sidebarHamburger input:focus-visible {
+        border: 1px solid white;
+        box-shadow: 0 0 0 1px var(--foreground);
+    }
+
+    .sidebarHamburger::before,
+    .sidebarHamburger::after,
+    .sidebarHamburger input {
+        content: "";
+        width: var(--barWidth);
+        height: var(--barHeight);
+        background-color: var(--foreground);
+        border-radius: 9999px;
+        transform-origin: left center;
+        transition: opacity var(--animationTiming), width var(--animationTiming), rotate var(--animationTiming), translate var(--animationTiming), background-color var(--animationTiming);
+    }
+
+    .sidebarHamburger input {
+        appearance: none;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        pointer-events: none;
+    }
+
+    .sidebarHamburger:has(input:checked)::before {
+        rotate: 45deg;
+        translate: 0 calc(var(--barHeight) / -2);
+        width: var(--xWidth);
+    }
+
+    .sidebarHamburger:has(input:checked)::after  {
+        rotate: -45deg;
+        translate: 0 calc(var(--barHeight) / 2);
+        width: var(--xWidth);
+    }
+
+    .sidebarHamburger input:checked {
+        opacity: 0;
+        width: 0;
+    }
+
+    .sidebar {
+        padding-top: calc(var(--hamburgerHeight) + var(--hamburgerMargin) + 1rem);
+        max-width: 10rem;
+        min-height: 100vh;
+        translate: -100%;
+        transition: translate var(--animationTiming);
+        z-index: 10;
+    }
+
+    .sidebarHamburger:has(input:checked) + .sidebar {
+        translate: 0;
+    }
+
+    div {
+        justify-content: center;
+        display: flex;
+    }
+</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
