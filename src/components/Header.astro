@@ -43,39 +43,43 @@ const navbarItems = [
 ];
 ---
 
-<header class="flex sticky top-0 z-10 px-14 justify-between dark:text-white text-darkModeColor w-full py-5 items-center dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] backdrop-blur-xl border-b-[2px] dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor">
-    <section>
-        <ToggleLanguage/>
-    </section>
-    <nav class="gap-5 flex" id="navbar">
-        {navbarItems.map(({itemName, itemLabel, itemUrl, itemId}) => (
-            <a class="dark:text-white text-base font-bold px-[10px] cursor-pointer dark:hover:text-lightTagIconColor text-lightTagIconColor hover:text-white transition-all duration-300" href={itemUrl} data-id={itemId} aria-label={itemLabel}>{itemName}</a>
-        ))}
-    </nav>
-    <section>
-        <PageTheme />
+<header class="flex max-[1280px]:hidden sticky top-0 z-10 px-6 justify-between dark:text-white text-darkModeColor w-full py-5 items-center dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] backdrop-blur-xl border-b-[2px] dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor">
+    <section class="flex flex-row divide-x-2 dark:divide-white divide-lightTagIconColor items-center">
+        <a role="link" class="cursor-pointer" href="https://kevin-garcia.vercel.app">
+            <Logo class="w-[75px] h-auto dark:fill-white fill-lightTagIconColor mr-4 dark:hover:fill-lightTagIconColor hover:fill-white duration-300 transition-all"/>
+        </a>
+        <nav class="flex" id="navbar">
+            {navbarItems.map(({itemName, itemLabel, itemUrl, itemId}) => (
+                <a class="dark:text-white text-sm font-bold px-[10px] cursor-pointer dark:hover:text-lightTagIconColor text-lightTagIconColor hover:text-white transition-all duration-300 ml-2" href={itemUrl} data-id={itemId} aria-label={itemLabel}>{itemName}</a>
+            ))}
+        </nav>
     </section>
 </header>
-<header class="responsiveNavbar hidden dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] border-b-[2px] dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor backdrop-blur-xl">
-    <Logo class="size-11 absolute"/>
-    <label class="sidebarHamburger">
+<section class="z-[11] fixed top-[20px] right-5">
+    <PageTheme/>
+</section>
+<section class="right-[70px] top-[21px] z-[11] fixed">
+    <ToggleLanguage/>
+</section>
+<header class="responsiveNavbar min-[1281px]:hidden">
+    <hr class="w-full absolute h-full dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] border-b-2 border-t-0 dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor backdrop-blur-xl z-[2]"/>
+    <label class="sidebarHamburger [&_input]:dark:bg-white [&_input]:bg-lightTagIconColor before:dark:bg-white before:bg-lightTagIconColor after:dark:bg-white after:bg-lightTagIconColor ease-in-out duration-200">
         <input type="checkbox">
     </label>
-    <aside class="sidebar dark:bg-[#33272a] bg-darkModeColor bg-opacity-[90%]">
-        <>
-            <nav class="text-center flex flex-col">
-                {navbarItems.map(({itemName, itemLabel, itemUrl, itemId}) => (
-                    <a class="dark:text-white text-base font-bold px-[10px]" href={itemUrl} aria-label={itemLabel} data-id={itemId}>
-                        {itemName}
-                    </a>
-                ))}
-            </nav>
-            <div>
-                <ToggleLanguage/>
-            </div>
-            <div>
-                <PageTheme/>
-            </d>
+    <aside class="sidebar dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%] backdrop-blur-xl">
+        <hr class="border-b-2 border-t-0 dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor mt-16 max-w-[150px] mx-auto"/>
+        <nav class="text-center flex flex-col gap-y-9 mt-8">
+            {navbarItems.map(({itemName, itemLabel, itemUrl, itemId}) => (
+                <a class="dark:text-white text-lightTagIconColor text-sm dark:hover:text-lightTagIconColor hover:text-white transition-all duration-300 font-bold mx-[10px]" href={itemUrl} aria-label={itemLabel} data-id={itemId}>
+                    {itemName}
+                </a>
+            ))}
+        </nav>
+        <hr class="border-b-2 border-t-0 dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor max-w-[150px] mx-auto mt-8"/>
+        <section class="mt-8">
+            <a role="link" class="cursor-pointer" href="https://kevin-garcia.vercel.app">
+                <Logo class="w-[75px] h-auto dark:fill-white fill-lightTagIconColor dark:hover:fill-lightTagIconColor hover:fill-white duration-300 transition-all"/>
+            </a>
         </section>
     </aside>
 </header>
@@ -93,10 +97,11 @@ const navbarItems = [
     }
 
     .responsiveNavbar {
+        height: 66px;
         margin: 0;
         position: fixed;
-        height: 66px;
         width: 100%;
+        z-index: 10;
     }
 
     .sidebarHamburger {
@@ -104,11 +109,12 @@ const navbarItems = [
         display: flex;
         flex-direction: column;
         gap: var(--hamburgerGap);
-        left: 4.5rem;
+        left: 1.5rem;
         position: absolute;
-        top: 40%;
+        top: 36%;
+        transition: left var(--animationTiming);
         width: max-content;
-        z-index: 4;
+        z-index: 12;
     }
 
     .sidebarHamburger:has(input:focus-visible)::before,
@@ -121,20 +127,23 @@ const navbarItems = [
     .sidebarHamburger::before,
     .sidebarHamburger::after,
     .sidebarHamburger input {
-        content: "";
-        width: var(--barWidth);
-        height: var(--barHeight);
-        background-color: var(--foreground);
         border-radius: 9999px;
+        content: "";
+        height: var(--barHeight);
         transform-origin: left center;
-        transition: opacity var(--animationTiming), width var(--animationTiming), rotate var(--animationTiming), translate var(--animationTiming), background-color var(--animationTiming);
+        transition: opacity var(--animationTiming), width var(--animationTiming), rotate var(--animationTiming), translate var(--animationTiming);
+        width: var(--barWidth);
+    }
+
+    .sidebarHamburger:has(input:checked) {
+        left: 6.9rem;
     }
 
     .sidebarHamburger input {
         appearance: none;
         margin: 0;
-        padding: 0;
         outline: none;
+        padding: 0;
         pointer-events: none;
     }
 
@@ -156,41 +165,41 @@ const navbarItems = [
     }
 
     .sidebar {
-        padding-top: calc(var(--hamburgerHeight) + var(--hamburgerMargin) + 1rem);
-        max-width: 10rem;
         min-height: 100vh;
-        translate: -100%;
+        position: absolute;
         transition: translate var(--animationTiming);
-        z-index: 10;
+        translate: -100%;
+        width: 236px;
+        z-index: 11;
     }
 
     .sidebarHamburger:has(input:checked) + .sidebar {
         translate: 0;
     }
 
-    div {
-        justify-content: center;
+    section {
         display: flex;
+        justify-content: center;
     }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.getElementById('navbar');
-    navbar.addEventListener('click', (event) => {
-        const target = event.target as Element;
-        const link = target.closest('a');
-        if (!link) return;
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.getElementById('navbar');
+        navbar.addEventListener('click', (event) => {
+            const target = event.target as Element;
+            const link = target.closest('a');
+            if (!link) return;
 
-        const sectionId = link.getAttribute('data-id');
-        if (sectionId) {
-            event.preventDefault();
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-                history.pushState(null, '', link.getAttribute('href'));
+            const sectionId = link.getAttribute('data-id');
+            if (sectionId) {
+                event.preventDefault();
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                    history.pushState(null, '', link.getAttribute('href'));
+                }
             }
-        }
+        });
     });
-});
 </script>

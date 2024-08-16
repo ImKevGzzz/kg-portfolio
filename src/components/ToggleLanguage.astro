@@ -17,13 +17,13 @@ if (lang === "en") {
 <div class="dropdownLenguage cursor-pointer" data-dropdown>
     <button class="buttonMenu flex items-center divide-x-2 dark:divide-white divide-lightTagIconColor [&_p]:dark:hover:text-lightTagIconColor [&_p]:hover:text-white [&_svg]:dark:hover:stroke-lightTagIconColor [&_svg]:hover:stroke-white [&_p]:duration-[250ms] [&_svg]:duration-[250ms] dark:hover:divide-lightTagIconColor hover:divide-white duration-[250ms]" data-dropdown-button>
       <LenguageIcon class="iconStyle size-5 dark:stroke-white stroke-lightTagIconColor mr-2"/>
-      <p class="dark:text-white text-lightTagIconColor font-bold pl-2">{currentLanguage}</p>
+      <p class="dark:text-white text-lightTagIconColor text-sm font-bold pl-2">{currentLanguage}</p>
     </button>
-    <div class="dropdownMenu absolute left-0 top-[50px] p-[3px] opacity-0 scale-[0.8] rounded backdrop-blur-sm shadow-[0px_0px_30px_0px_rgba(0,0,0,0.3)] dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%]">
+    <div class="dropdownMenu absolute left-1 top-[50px] p-[3px] opacity-0 scale-[0.8] rounded backdrop-blur-sm shadow-[0px_0px_30px_0px_rgba(0,0,0,0.3)] dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[90%]">
       <ul>
         {Object.entries(languages).map(([lang, label]) => (
           <li class="flex gap-2 hover:bg-lightTagIconColor/15 dark:hover:bg-orange-400/30 rounded-sm cursor-pointer transition-all">
-            <a class="px-3 py-3 w-full h-full dark:text-white text-lightTagIconColor text-base font-bold" href={translatePath('/', lang)}>{label}</a>
+            <a class="px-3 py-3 w-full h-full dark:text-white text-lightTagIconColor text-sm font-bold" href={translatePath('/', lang)}>{label}</a>
           </li>
         ))}
       </ul>
