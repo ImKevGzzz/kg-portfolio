@@ -36,9 +36,9 @@ const socialMedia = [
 		<section class="max-[1081px]:mx-auto">
 			<img class="rounded-[500px] w-[355px] h-[355px] shadow-[0px_5px_50px_0px_rgba(255,144,64,0.2)]" src="/ProfilePictureKev.webp" alt="Profile Picture"/>
 		</section>
-		<section class="mx-auto">
-			<h1 class="min-[1081px]:text-5xl text-3xl font-bold text-center dark:text-white text-darkModeColor">{i18n.ABOUT_ME.TITLE}<span class="dark:text-darkModeOrange text-lightModeOrange">{i18n.ABOUT_ME.DEV_NAME}</span></h1>
-			<div class="gap-y-2 flex flex-col mt-9 max-[1081px]:max-w-[320px] max-[1081px]:text-center mx-auto">
+		<section class="max-[1081px]:mx-auto">
+			<h1 class="min-[1081px]:text-5xl text-3xl font-bold dark:text-white text-darkModeColor">{i18n.ABOUT_ME.TITLE}<span class="dark:text-darkModeOrange text-lightModeOrange">{i18n.ABOUT_ME.DEV_NAME}</span></h1>
+			<div class="gap-y-2 flex flex-col mt-9 max-[1081px]:max-w-[320px] max-[1081px]:text-center">
 				<p class="dark:text-white text-darkModeColor min-[1081px]:text-xl text-base font-bold"><span class="dark:text-darkModeOrange text-lightModeOrange">{i18n.ABOUT_ME.DESCRIPTION_N1_POSITION}</span>
 					{i18n.ABOUT_ME.DESCRIPTION_N1}
 				</p>
@@ -46,7 +46,7 @@ const socialMedia = [
 					{i18n.ABOUT_ME.DESCRIPTION_N2_P2}
 				</p>
 			</div>
-			<div class="flex gap-5 min-[1081px]:mt-10 mt-14 max-[1081px]:max-w-[150px] max-[1081px]:grid max-[1081px]:grid-cols-[150px_minmax(150px,_2fr)]">
+			<div class="flex gap-5 min-[1081px]:mt-10 mt-14 max-[1082px]:max-w-[150px] max-[1081px]:grid max-[1081px]:grid-cols-[150px_minmax(150px,_2fr)]">
 				{socialMedia.map(({socialName, socialIcon: Icons, socialNetworkUrl}) => (
 					<a class="inline-flex items-center gap-[5px] py-2 px-[18px] rounded-2xl dark:shadow-[4px_4px_0px_0px_rgba(255,144,64,1)] shadow-[4px_4px_0px_0px_rgba(37,34,56,1)] dark:hover:shadow-[7px_7px_0px_0px_rgba(255,144,64,1)] hover:shadow-[7px_7px_0px_0px_rgba(37,34,56,1)] duration-200 border-2 dark:border-darkModeOrange border-darkModeColor dark:bg-white bg-[#ff9040] cursor-pointer transition max-[1081px]:justify-center" href={socialNetworkUrl} role="link" target="_blank">
 						<Icons class="fill-darkModeColor w-6 h-6"/>
