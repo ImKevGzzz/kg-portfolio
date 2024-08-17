@@ -15,13 +15,13 @@
             {
                 "CARD_TITLE": "Freelance Project",
                 "COMPANY_NAME": "El Arte de Forjar el Hierro",
-                "TIME_POSITION": "December 2023 - January 2024",
+                "TIME_POSITION": "2023 - 2024",
                 "DESCRIPTION_N1": "Creation of the website design, moreover the development of this using NextJs for the Front-end and Drupal 10 Headless for the Backend."
             },
             {
                 "CARD_TITLE": "Intern Web Developer",
                 "COMPANY_NAME": "Decimo Technology Solutions",
-                "TIME_POSITION": "March 2022 - November 2023",
+                "TIME_POSITION": "2022 - 2023",
                 "DESCRIPTION_N1": "Training in the technologies used in the company. Development of the components assigned in the project of the company's homepage, using GatsbyJs for the Front-end and Drupal 9 for the Back-end",
                 "DESCRIPTION_N2": "Development of the external portal, as well as other functionalities in the TMS (Talent Management System) with Open Source approach, using Drupal 10."
             }
