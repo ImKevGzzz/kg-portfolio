@@ -1,20 +1,20 @@
 ---
+import AstroJsIcon from "../Icons/TechnologiesIcons/AstroJsIcon.astro";
+import CardSvg from "../Icons/CardSvg.astro";
 import DrupalIcon from "../Icons/TechnologiesIcons/DrupalIcon.astro";
-import NextJsIcon from "../Icons/TechnologiesIcons/NextJsIcon.astro";
 import FigmaIcon from "../Icons/TechnologiesIcons/FigmaIcon.astro";
 import GatbsyJsIcon from "../Icons/TechnologiesIcons/GatsbyJsIcon.astro";
 import GrapgQLIcon from "../Icons/TechnologiesIcons/GraphQLIcon.astro";
-import AstroJsIcon from "../Icons/TechnologiesIcons/AstroJsIcon.astro";
+import NextJsIcon from "../Icons/TechnologiesIcons/NextJsIcon.astro";
 import ProjectImage1 from "../../public/projectsImages/Project1.webp";
 import ProjectImage2 from "../../public/projectsImages/Project2.webp";
 import ProjectImage3 from "../../public/projectsImages/Project3.webp";
-import CardSvg from "../Icons/CardSvg.astro";
 import { getI18n } from "@src/i18n";
 
 const {currentLocale} = Astro;
 const i18n = getI18n({currentLocale});
 
-const icons = {
+const ICONS = {
     Project1: {
         techIcons: {
             drupalIcon: DrupalIcon,
@@ -41,7 +41,7 @@ const CARDS_DATA = i18n.PROJECTS.CARDS.map((card, index) => {
     return {
         ...card,
         CARD_IMAGE: index === 0 ? ProjectImage1 : index === 1 ? ProjectImage2 : ProjectImage3 ,
-        TAG_ICONS: icons[`Project${index + 1}`].techIcons
+        TAG_ICONS: ICONS[`Project${index + 1}`].techIcons
     }
 })
 ---
@@ -50,11 +50,11 @@ const CARDS_DATA = i18n.PROJECTS.CARDS.map((card, index) => {
     {CARDS_DATA.map(({ CARD_TITLE, CARD_DESCRIPTION_N1, CARD_DESCRIPTION_N2, CARD_URL,TAG_ICONS, CARD_IMAGE, CARD_IMG_ALT }) => (
         <article class="dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[70%] duration-200 hover:shadow-[0_4px_50px_0px_rgba(0,0,0,0.4)] rounded-2xl h-full flex flex-col justify-between cursor-pointer" redirect-url={CARD_URL}>
             <img src={CARD_IMAGE.src} class="p-2 rounded-[19px]" alt={CARD_IMG_ALT}/>
-            <div class="px-5 gap-y-5 flex flex-col mt-4 mb-5 flex-grow">
-                <h4 class="dark:text-lightModeExperienceHover font-bold text-[20px] leading-6 text-lightTagIconColor">{CARD_TITLE}</h4>
+            <div class="px-5 sm:gap-y-5 gap-y-3 flex flex-col mt-4 mb-5 flex-grow">
+                <h4 class="dark:text-lightModeExperienceHover font-bold min-[941px]:text-[20px] text-base leading-6 text-lightTagIconColor">{CARD_TITLE}</h4>
                 <div class="flex flex-col gap-y-2 flex-grow">
-                    <p class="text-white text-base font-medium">{CARD_DESCRIPTION_N1}</p>
-                    <p class="text-white text-base font-medium">{CARD_DESCRIPTION_N2}</p>
+                    <p class="text-white min-[941px]:text-base text-sm font-medium">{CARD_DESCRIPTION_N1}</p>
+                    <p class="text-white min-[941px]:text-base text-sm font-medium">{CARD_DESCRIPTION_N2}</p>
                 </div>
                 <div class="items-center justify-between flex">
                     <div class="flex gap-2">
@@ -89,25 +89,9 @@ const CARDS_DATA = i18n.PROJECTS.CARDS.map((card, index) => {
     section {
         column-gap: 60px;
         display: grid;
-        grid-template-columns: repeat(2, 435px);
+        grid-template-columns: repeat(2, minmax(0px,435px));
         justify-content: center;
         row-gap: 40px;
-    }
-
-    article:nth-child(3n) {
-        display: grid;
-        grid-auto-flow: dense;
-        grid-column: span 2;
-        grid-template-columns: repeat(2, 454px);
-    }
-
-    article:nth-child(3n) > img {
-        height: 332px;
-        object-fit: cover;
-    }
-
-    article:nth-child(3n) > img:nth-child(1) {
-        grid-column-start: 2;
     }
 
     article > img {
@@ -127,5 +111,56 @@ const CARDS_DATA = i18n.PROJECTS.CARDS.map((card, index) => {
 
     article:hover div > div > .cardSvg {
         transform: rotate(135deg) scale(1);
+    }
+
+
+    @media (width >= 941px) {
+        article:nth-child(3n) {
+            display: grid;
+            grid-auto-flow: dense;
+            grid-column: span 2;
+            grid-template-columns: repeat(2, 454px);
+        }
+
+        article:nth-child(3n) > img {
+            height: 332px;
+            object-fit: cover;
+        }
+
+        article:nth-child(3n) > img:nth-child(1) {
+            grid-column-start: 2;
+        }
+    }
+
+    @media (width <= 941px) {
+        section {
+            column-gap: 35px;
+            margin-inline: 1rem;
+        }
+        article:nth-child(3n) {
+            display:flex;
+        }
+
+        article:nth-child(3n) > img {
+            height: auto;
+            display: block;
+        }
+    }
+
+    @media (width <= 640px) {
+        section {
+            display: flex;
+            flex-direction: column;
+            margin-inline: 1.2rem;
+        }
+
+        article:nth-child(3n) {
+            display: flex;
+        }
+
+        article:nth-child(3n) > img {
+            display: block;
+            height: auto;
+        }
     }
 </style>
