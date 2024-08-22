@@ -6,8 +6,8 @@ const { currentLocale } = Astro;
 const i18n = getI18n({ currentLocale });
 ---
 
-<div id={i18n.SECTIONS_ID.EXPERIENCE_ID} class="mx-auto mt-36 scroll-mt-[100px] flex flex-col">
-  <h2 class="dark:text-darkModeOrange text-lightModeOrange text-5xl font-bold text-center">
+<div id={i18n.SECTIONS_ID.EXPERIENCE_ID} class="mx-4 min-[1081px]:mt-36 scroll-mt-[100px] flex flex-col relative min-[361px]:mt-[500px] mt-[445px]">
+  <h2 class="dark:text-darkModeOrange text-lightModeOrange min-[1081px]:text-5xl text-3xl font-bold text-center">
     {i18n.EXPERIENCE.TITLE}
   </h2>
   <div class="mx-auto">
@@ -15,26 +15,26 @@ const i18n = getI18n({ currentLocale });
       {i18n.EXPERIENCE.CARDS.map(({CARD_TITLE, COMPANY_NAME, TIME_POSITION, DESCRIPTION_N1, DESCRIPTION_N2}) => (
         <li class="mb-10 me-2">
             <div class="absolute w-3 h-3 rounded-full mt-1.5 -end-1.5 border border-darkModeColor dark:border-[#FF8C39] dark:bg-[#FF8C39] bg-darkModeColor" />
-                <article class="h-auto max-w-[914px] mr-[252px] flex-col flex gap-y-6 duration-200 dark:hover:bg-lightModeExperienceHover dark:hover:bg-opacity-[7%] px-7 py-10 rounded-[20px] hover:bg-darkModeOrange hover:bg-opacity-[90%] hover:shadow-[0_4px_50px_0px_rgba(0,0,0,0.4)]">
-                    <section class="flex justify-between items-center">
-                        <h3 class="dark:text-darkModeOrange text-lightModeBlue text-2xl font-bold">
+                <article class="h-auto max-w-[914px] min-[1081px]:mr-[252px] mr-[30px] flex-col flex gap-y-6 duration-200 dark:hover:bg-lightModeExperienceHover dark:hover:bg-opacity-[7%] px-7 py-10 rounded-[20px] hover:bg-darkModeOrange hover:bg-opacity-[90%] hover:shadow-[0_4px_50px_0px_rgba(0,0,0,0.4)]">
+                    <section class="min-[502px]:flex min-[502px]:justify-between items-center">
+                        <h3 class="dark:text-darkModeOrange text-lightModeBlue min-[1081px]:text-2xl text-xl font-bold">
                             {CARD_TITLE}
                         </h3>
-                        <p class="dark:text-darkModeOrange text-lightModeBlue text-base font-bold">
+                        <p class="dark:text-darkModeOrange text-lightModeBlue min-[1081px]:text-base text-sm font-bold max-[502px]:mt-2">
                             {TIME_POSITION}
                         </p>
                     </section>
                     <section class="inline-flex items-center gap-3">
                         <CompanyIcon class="dark:fill-darkModeOrange fill-lightModeBlue" />
-                        <p class="dark:text-white text-darkModeColor font-bold text-base">
+                        <p class="dark:text-white text-darkModeColor font-bold min-[1081px]:text-base text-sm">
                             {COMPANY_NAME}
                         </p>
                     </section>
                     <section class="flex-col flex gap-y-2">
-                        <p class="dark:text-white text-darkModeColor text-base font-bold leading-[22px]">
+                        <p class="dark:text-white text-darkModeColor min-[1081px]:text-base text-sm font-bold leading-[22px]">
                             {DESCRIPTION_N1}
                         </p>
-                        <p class="dark:text-white text-darkModeColor text-base font-bold leading-[22px]">
+                        <p class="dark:text-white text-darkModeColor min-[1081px]:text-base text-sm font-bold leading-[22px]">
                             {DESCRIPTION_N2}
                         </p>
                     </section>
