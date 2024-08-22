@@ -7,11 +7,11 @@ const {currentLocale} = Astro;
 const i18n = getI18n({currentLocale});
 ---
 
-<section id={i18n.SECTIONS_ID.SKILLS_AND_TOOLS_ID} class="my-20 scroll-mt-[100px]">
-    <h2 class="dark:text-darkModeOrange text-lightModeOrange text-5xl font-bold text-center">{i18n.SKILLS_AND_TOOLS.TITLE}</h2>
+<section id={i18n.SECTIONS_ID.SKILLS_AND_TOOLS_ID} class="mt-[5rem] max-[451px]:mb-10 mb-[5rem] scroll-mt-[100px] relative z-[-1]">
+    <h2 class="dark:text-darkModeOrange text-lightModeOrange min-[1081px]:text-5xl text-3xl font-bold text-center">{i18n.SKILLS_AND_TOOLS.TITLE}</h2>
     <div>
         <RightSlider/>
-        <hr class="dark:border-darkModeOrange border-darkModeColor border-2 my-10 mx-24"/>
+        <hr class="dark:border-darkModeOrange border-darkModeColor border-2 my-10 mx-24 max-[401px]:mx-14"/>
         <LeftSlider/>
     </div>
 </section>

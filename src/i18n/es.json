@@ -5,7 +5,7 @@
         "DESCRIPTION_N1_POSITION": "Desarrollador Front-end",
         "DESCRIPTION_N1": "con 2 años de experiencia, egresado de la carrera Ingeniería en Sistemas.",
         "DESCRIPTION_N2_P1": "Tengo conocimientos en ",
-        "DESCRIPTION_N2_p2": ", esto en la creación de diseños y/o mockup's",
+        "DESCRIPTION_N2_P2": ", esto en la creación de diseños y/o mockup's",
         "DESCRIPTION_N2_POSITION": "UX/UI",
         "CONTACT_ME_BUTTON_TEXT": "Contáctame"
     },
@@ -15,13 +15,13 @@
             {
                 "CARD_TITLE": "Proyecto Freelance",
                 "COMPANY_NAME": "El Arte de Forjar el Hierro",
-                "TIME_POSITION": "Diciembre 2023 - Enero 2024",
+                "TIME_POSITION": "2023 - 2024",
                 "DESCRIPTION_N1": "Creación del diseño de la página web, así como el desarrollo de la misma haciendo uso de NextJs para el Front-end y Drupal 10 Headless para el Back-end"
             },
             {
                 "CARD_TITLE": "Pasante en Desarrollador Web",
                 "COMPANY_NAME": "Decimo Technology Solutions",
-                "TIME_POSITION": "Marzo 2022 - Noviembre 2023",
+                "TIME_POSITION": "2022 - 2023",
                 "DESCRIPTION_N1": "Capacitación en las tecnologías utilizadas en la empresa. Desarrollo de los componentes asignados en el proyecto de la página principal de la empresa, haciendo uso de GatsbyJs para el Front-end y Drupal 9 para el Back-end.",
                 "DESCRIPTION_N2": "Desarrollo del portal externo, así como otras funcionalidades en el TMS (Talent Management System) con enfoque Open Source, utilizando Drupal 10."
             }
@@ -55,7 +55,7 @@
         "TITLE": "Habilidades y Herramientas"
     },
     "FOOTER": {
-        "DESCRIPTION": "Desarrollado por Kevin García"
+        "DESCRIPTION": "© 2024 Kevin García."
     },
     "PAGE_THEME": {
         "DARK_THEME": "Oscuro",

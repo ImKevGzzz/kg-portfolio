@@ -50,8 +50,8 @@ const duplicatedIcons = [...techIcons, ...techIcons];
     <div class="rightSlider">
         {duplicatedIcons.map(({icons: Icons, iconName}) => (
             <div class="flex flex-col justify-center text-center techIconsContainer">
-                <Icons class="dark:fill-white fill-lightModeOrange w-[100px] h-auto mx-auto"/>
-                <p class="dark:text-darkModeOrange text-darkModeColor font-bold text-xl mt-3">{iconName}</p>
+                <Icons class="dark:fill-white fill-lightModeOrange min-[561px]:max-w-[100px] max-w-[35px] h-auto mx-auto"/>
+                <p class="dark:text-darkModeOrange text-darkModeColor font-bold min-[561px]:text-xl text-sm mt-3">{iconName}</p>
             </div>
         ))}
     </div>
@@ -80,6 +80,31 @@ const duplicatedIcons = [...techIcons, ...techIcons];
         }
         100% {
             transform: translateX(0%);
+        }
+    }
+
+    @media (width <= 1090px) {
+        .techIconsContainer {
+            width: 25%;
+        }
+
+        .rightSlider {
+            animation: scrollRightMobile 18s linear infinite;
+        }
+
+        @keyframes scrollRightMobile {
+            0% {
+                transform: translateX(-200%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+    }
+
+    @media (width <= 1080px) {
+        .rightSliderWrapper {
+            margin: 3.5rem 0 0 0;
         }
     }
 </style>
