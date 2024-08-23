@@ -24,7 +24,7 @@ const THEME_PAGE = [
 ---
 
 <div class="relative ml-1 mr-1">
-    <button id="themeToggleButton" class="appearance-none border-none flex hover:scale-[1.3] transition">
+    <button id="themeToggleButton" class="appearance-none border-none flex hover:scale-[1.3] transition" aria-label={i18n.THEME_BUTTON_LABEL}>
         <LightModeIcon id="light" class="themeIcon size-5 transition-all dark:fill-white fill-lightTagIconColor"/>
         <DarkModeIcon id="dark" class="themeIcon absolute size-5 transition-all dark:fill-white fill-lightTagIconColor"/>
         <SystemThemeIcon id="system" class="themeIcon absolute size-5 transition-all dark:fill-white fill-lightTagIconColor dark:stroke-white stroke-lightTagIconColor"/>
