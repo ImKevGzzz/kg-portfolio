@@ -74,5 +74,7 @@
         "PROJECTS_LABEL": "proyectos",
         "SKILLS_AND_TOOLS_LABEL": "habilidades-y-herramientas",
         "CONTACT_LABEL": "contacto"
-    }
+    },
+    "HEADER_LOGO_LABEL": "Logo del porfolio",
+    "HEADER_LOGO_ID": "kg-portolio"
 }
