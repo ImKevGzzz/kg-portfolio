@@ -36,14 +36,14 @@ const iconsArray = [
 ---
 
 <footer class="mt-10 max-[451px]:pt-6 min-[451px]:mb-3 dark:bg-darkModeOrange dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[70%] min-[451px]:mx-5 min-[451px]:rounded-[50px] px-10 p-5 min-[451px]:justify-between max-[451px]:flex-col flex items-center max-[451px]:gap-y-6 max-[451px]:border-t-2 dark:border-opacity-[35%] dark:border-lightModeExperienceHover border-lightTagIconColor">
-    <div class="flex flex-row items-center divide-x-2  max-[451px]:order-last">
+    <div class="flex flex-row items-center divide-x-2 dark:divide-white divide-lightTagIconColor max-[451px]:order-last">
         <Logo class="h-auto w-[60px] pr-2 dark:fill-white fill-lightTagIconColor"/>
         <p class="dark:text-white text-lightTagIconColor font-semibold pl-2 min-[571px]:text-base text-sm">{i18n.FOOTER.DESCRIPTION}</p>
     </div>
     <ul>
         <li class="list-none flex min-[571px]:gap-8 max-[451px]:gap-6 gap-4">
             {iconsArray.map(({footerIcons: Icons, iconUrl, footerAriaLabel}) => (
-                <FooterIcons href={iconUrl} class="duration-200 hover:scale-75" aria-label={footerAriaLabel}>
+                <FooterIcons href={iconUrl} class="duration-200 hover:scale-125" aria-label={footerAriaLabel}>
                     <Icons class="dark:fill-white fill-lightTagIconColor min-[571px]:w-6 min-[571px]:h-6 w-4 h-4 max-[451px]:w-5 max-[451px]:h-5"/>
                 </FooterIcons>
             ))}
