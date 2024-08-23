@@ -51,7 +51,7 @@ const CARDS_DATA = i18n.PROJECTS.CARDS.map((card, index) => {
         <article class="dark:bg-lightModeExperienceHover dark:bg-opacity-[10%] bg-darkModeColor bg-opacity-[70%] duration-200 hover:shadow-[0_4px_50px_0px_rgba(0,0,0,0.4)] rounded-2xl h-full flex flex-col justify-between cursor-pointer" redirect-url={CARD_URL}>
             <img src={CARD_IMAGE.src} class="p-2 rounded-[19px]" alt={CARD_IMG_ALT}/>
             <div class="px-5 sm:gap-y-5 gap-y-3 flex flex-col mt-4 mb-5 flex-grow">
-                <h4 class="dark:text-lightModeExperienceHover font-bold min-[941px]:text-[20px] text-base leading-6 text-lightTagIconColor">{CARD_TITLE}</h4>
+                <p class="dark:text-lightModeExperienceHover font-bold min-[941px]:text-[20px] text-base leading-6 text-lightTagIconColor">{CARD_TITLE}</p>
                 <div class="flex flex-col gap-y-2 flex-grow">
                     <p class="text-white min-[941px]:text-base text-sm font-medium">{CARD_DESCRIPTION_N1}</p>
                     <p class="text-white min-[941px]:text-base text-sm font-medium">{CARD_DESCRIPTION_N2}</p>
