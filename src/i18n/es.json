@@ -69,12 +69,19 @@
         "SKILLS_AND_TOOLS_ID": "habilidades-y-herramientas"
     },
     "SECTIONS_LABEL": {
-        "ABOUT_ME_LABEL": "sobre-mi",
-        "EXPERIENCE_LABEL": "experiencia",
-        "PROJECTS_LABEL": "proyectos",
-        "SKILLS_AND_TOOLS_LABEL": "habilidades-y-herramientas",
-        "CONTACT_LABEL": "contacto"
+        "ABOUT_ME_LABEL": "Sección acerca de mí",
+        "EXPERIENCE_LABEL": "Sección de mi experiensia laboral",
+        "PROJECTS_LABEL": "Sección de los proyectos que he realizado.",
+        "SKILLS_AND_TOOLS_LABEL": "Sección acerca de las habilidades que actualmente he aprendido y las herramientas que uso día a día.",
+        "CONTACT_LABEL": "Contáctame por correo electrónico."
     },
     "HEADER_LOGO_LABEL": "Logo del porfolio",
-    "HEADER_LOGO_ID": "kg-portolio"
+    "HEADER_LOGO_ID": "kg-portolio",
+    "THEME_BUTTON_LABEL": "Cambiar el tema de la página.",
+    "FOOTER_LABEL": {
+        "GITHUB_LABEL": "Ve a mi perfil de Github.",
+        "LINKEDIN_LABEL": "Ve a mi perfil de LinkedIn.",
+        "INSTAGRAM_PROFILE": "Ve a mi perfil de Instagram.",
+        "EMAIL_LABEL": "Contáctame por correo electrónico."
+    }
 }

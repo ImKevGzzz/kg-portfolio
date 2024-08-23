@@ -13,19 +13,23 @@ const i18n = getI18n({currentLocale});
 const iconsArray = [
     {
         footerIcons: GithubIcon,
-        iconUrl: 'https://github.com/ImKevGzzz'
+        iconUrl: 'https://github.com/ImKevGzzz',
+        footerAriaLabel: i18n.FOOTER_LABEL.GITHUB_LABEL
     },
     {
         footerIcons: LinkedinIcon,
-        iconUrl: 'https://www.linkedin.com/in/kev-garc%C3%ADa/'
+        iconUrl: 'https://www.linkedin.com/in/kev-garc%C3%ADa/',
+        footerAriaLabel: i18n.FOOTER_LABEL.LINKEDIN_LABEL
     },
     {
         footerIcons: InstagramIcon,
-        iconUrl: 'https://www.instagram.com/__kev_garcia__/'
+        iconUrl: 'https://www.instagram.com/__kev_garcia__/',
+        footerAriaLabel: i18n.FOOTER_LABEL.INSTAGRAM_PROFILE
     },
     {
         footerIcons: EmailIcon,
-        iconUrl: 'mailto:kevingarciaoviedo05@gmail.com'
+        iconUrl: 'mailto:kevingarciaoviedo05@gmail.com',
+        footerAriaLabel: i18n.FOOTER_LABEL.EMAIL_LABEL
     },
 ]
 
@@ -36,11 +40,13 @@ const iconsArray = [
         <Logo class="h-auto w-[60px] pr-2 dark:fill-white"/>
         <p class="text-white font-semibold pl-2 min-[571px]:text-base text-sm">{i18n.FOOTER.DESCRIPTION}</p>
     </div>
-    <li class="list-none flex min-[571px]:gap-8 max-[451px]:gap-6 gap-4">
-        {iconsArray.map(({footerIcons: Icons, iconUrl}) => (
-            <FooterIcons href={iconUrl} class="duration-200 hover:scale-75">
-                <Icons class="fill-white min-[571px]:w-6 min-[571px]:h-6 w-4 h-4 max-[451px]:w-5 max-[451px]:h-5"/>
-            </FooterIcons>
-        ))}
-    </li>
+    <ul>
+        <li class="list-none flex min-[571px]:gap-8 max-[451px]:gap-6 gap-4">
+            {iconsArray.map(({footerIcons: Icons, iconUrl, footerAriaLabel}) => (
+                <FooterIcons href={iconUrl} class="duration-200 hover:scale-75" aria-label={footerAriaLabel}>
+                    <Icons class="fill-white min-[571px]:w-6 min-[571px]:h-6 w-4 h-4 max-[451px]:w-5 max-[451px]:h-5"/>
+                </FooterIcons>
+            ))}
+        </li>
+    </ul>
 </footer>
