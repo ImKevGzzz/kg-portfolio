@@ -83,5 +83,7 @@
         "LINKEDIN_LABEL": "Go to my LinkedIn profile.",
         "INSTAGRAM_PROFILE": "Go to my Instagram profile.",
         "EMAIL_LABEL": "Contact me by email"
-    }
+    },
+    "LAYOUT_TITLE": "Portfolio - Kevin García - Frontend Developer",
+    "LAYOUT_DESCRIPTION": "This is my portfolio where I talk a little bit about myself and my qualities in the Frontend development furthermore other areas in which I've worked previously."
 }
