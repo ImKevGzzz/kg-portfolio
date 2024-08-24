@@ -83,5 +83,7 @@
         "LINKEDIN_LABEL": "Ve a mi perfil de LinkedIn.",
         "INSTAGRAM_PROFILE": "Ve a mi perfil de Instagram.",
         "EMAIL_LABEL": "Contáctame por correo electrónico."
-    }
+    },
+    "LAYOUT_TITLE": "Porfolio - Kevin García - Desarrollador Frontend",
+    "LAYOUT_DESCRIPTION": "Este es mi portafolio en el cual hablo un poco de mi y mis cualidades en el Desarrollo del Frontend y otros ambitos en los que he trabajado"
 }
